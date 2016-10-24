@@ -1,0 +1,10 @@
+[dapperlinux-main]
+name=Copr repo for main owned by dapperlinux
+baseurl=https://copr-be.cloud.fedoraproject.org/results/dapperlinux/main/fedora-$releasever-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-dapperlinux-main
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
