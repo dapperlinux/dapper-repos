@@ -1,14 +1,14 @@
 Summary:        Dapper Linux package repositories
 Name:           dapper-repos
 Version:        24
-Release:        1
+Release:        2
 License:        MIT
 Group:          System Environment/Base
 URL:            https://github.com/dapperlinux/dapper-repos/
 # tarball is created by running make archive in the git checkout
 Source:         %{name}-%{version}.tar.gz
 Provides:       dapper-repos(%{version})
-Requires:       system-release(%{version})
+Requires:       dapper-release(%{version})
 Obsoletes:      fedora-repos-rawhide = %{version}-%{release}
 Obsoletes:      fedora-repos-anaconda < 22-0.3
 Provides:       fedora-repos
