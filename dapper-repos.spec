@@ -1,16 +1,16 @@
 Summary:        Dapper Linux package repositories
 Name:           dapper-repos
-Version:        24
-Release:        6
+Version:        25
+Release:        1
 License:        MIT
 Group:          System Environment/Base
 URL:            https://github.com/dapperlinux/dapper-repos/
 # tarball is created by running make archive in the git checkout
-Source:         %{name}-%{version}.tar.gz
+Source:         %{name}-%{version}.tar.xz
 Provides:       dapper-repos(%{version})
 Requires:       system-release(%{version})
 Obsoletes:      fedora-repos-rawhide = %{version}-%{release}
-Obsoletes:      fedora-repos-anaconda < 22-0.3
+Obsoletes:      fedora-repos-anaconda < 24-0.3
 Provides:       fedora-repos
 Provides:       fedora-repos(%{version})
 Obsoletes:      fedora-repos
@@ -22,7 +22,7 @@ Dapper Linux package repository files for yum and dnf along with gpg public keys
 %package rawhide
 Summary:        Rawhide repo definitions
 Requires:       fedora-repos = %{version}-%{release}
-Obsoletes:      fedora-release-rawhide <= 22-0.3
+Obsoletes:      fedora-release-rawhide <= 24-0.3
 
 %description rawhide
 This package provides the rawhide repo definitions.
@@ -82,6 +82,9 @@ install -m 644 copr.conf $RPM_BUILD_ROOT/etc/dnf/plugins/copr.conf
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Fri Nov  4 2016 Matthew Ruffell <msr50@uclive.ac.nz> - 25-1
+- Updating for F25
+
 * Mon Oct 24 2016 Matthew Ruffell <msr50@uclive.ac.nz> - 24-1
 - Added Dapper Linux repo information
 
