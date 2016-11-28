@@ -1,5 +1,5 @@
 [dapperlinux-main]
-name=Copr repo for main owned by dapperlinux
+name=Dapper Linux $releasever - $basearch
 baseurl=https://copr-be.cloud.fedoraproject.org/results/dapperlinux/main/fedora-$releasever-$basearch/
 type=rpm-md
 skip_if_unavailable=True
