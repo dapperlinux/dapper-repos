@@ -1,0 +1,16 @@
+[xpra]
+name=Xpra $releasever - $basearch
+enabled=1
+metadata_expire=1d
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-xpra
+baseurl=https://xpra.org/dists/Fedora/$releasever/$basearch/
+
+[xpra-beta]
+name=Xpra Beta $releasever - $basearch
+enabled=1
+metadata_expire=1d
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-xpra
+baseurl=https://xpra.org/beta/Fedora/$releasever/$basearch/
+skip_if_unavailable = 1

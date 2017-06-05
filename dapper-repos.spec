@@ -1,7 +1,7 @@
 Summary:        Dapper Linux package repositories
 Name:           dapper-repos
 Version:        25
-Release:        2
+Release:        3
 License:        MIT
 Group:          System Environment/Base
 URL:            https://github.com/dapperlinux/dapper-repos/
@@ -56,7 +56,7 @@ ln -s RPM-GPG-KEY-fedora-%{version}-primary RPM-GPG-KEY-%{version}-fedora
 popd
 
 install -d -m 755 $RPM_BUILD_ROOT/etc/yum.repos.d
-for file in fedora*repo dapper*repo; do
+for file in fedora*repo dapper*repo xpra*repo; do
   install -m 644 $file $RPM_BUILD_ROOT/etc/yum.repos.d
 done
 
@@ -72,6 +72,7 @@ install -m 644 copr.conf $RPM_BUILD_ROOT/etc/dnf/plugins/copr.conf
 %config(noreplace) /etc/yum.repos.d/fedora-cisco-openh264.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates*.repo
 %config(noreplace) /etc/yum.repos.d/dapperlinux-main.repo
+%config(noreplace) /etc/yum.repos.d/xpra-beta.repo
 %config(noreplace) /etc/dnf/plugins/copr.conf
 %dir /etc/pki/rpm-gpg
 /etc/pki/rpm-gpg/*
