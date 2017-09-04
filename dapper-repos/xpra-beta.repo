@@ -8,7 +8,7 @@ baseurl=https://xpra.org/dists/Fedora/$releasever/$basearch/
 
 [xpra-beta]
 name=Xpra Beta $releasever - $basearch
-enabled=1
+enabled=0
 metadata_expire=1d
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-xpra

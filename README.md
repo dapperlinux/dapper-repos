@@ -1,10 +1,10 @@
 # dapper-repos
 
-##About
+## About
 The Dapper Repos package contains the repository information for the Dapper Linux distribution. It contains Fedora repository information, Dapper Linux COPR information, along with all necessary GPG keys. Note rpmfusion information is not provided here, and should always be fetched from upstream.
 
 
-##Building
+## Building
 To build this package, first install an RPM development chain:
 
 ```bash

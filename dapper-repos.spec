@@ -1,7 +1,7 @@
 Summary:        Dapper Linux package repositories
 Name:           dapper-repos
 Version:        26
-Release:        1
+Release:        2
 License:        MIT
 Group:          System Environment/Base
 URL:            https://github.com/dapperlinux/dapper-repos/
@@ -82,7 +82,10 @@ install -m 644 copr.conf $RPM_BUILD_ROOT/etc/dnf/plugins/copr.conf
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
-* Mon Nov 28 2016 Matthew Ruffell <msr50@uclive.ac.nz> - 26-1
+* Mon Sep  4 2017 Matthew Ruffell <msr50@uclive.ac.nz> - 26-2
+- Disabling xpra beta repo
+
+* Fri Aug 11 2017 Matthew Ruffell <msr50@uclive.ac.nz> - 26-1
 - Dapper Linux 26, adding Fedora 26, 27 Keyfiles
 
 * Mon Nov 28 2016 Matthew Ruffell <msr50@uclive.ac.nz> - 25-2
