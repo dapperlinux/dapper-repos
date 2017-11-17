@@ -1,0 +1,11 @@
+[dapperlinux-Primary]
+name=Dapper Linux $releasever - $basearch
+baseurl=https://copr-be.cloud.fedoraproject.org/results/dapperlinux/Primary/fedora-$releasever-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+metadata_expire=6h
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-dapperlinux-Primary
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
