@@ -1,7 +1,7 @@
 Summary:        Dapper Linux package repositories
 Name:           dapper-repos
-Version:        26
-Release:        2
+Version:        27
+Release:        1
 License:        MIT
 Group:          System Environment/Base
 URL:            https://github.com/dapperlinux/dapper-repos/
@@ -9,6 +9,7 @@ Source:         %{name}-%{version}.tar.xz
 Provides:       dapper-repos(%{version})
 Requires:       system-release(%{version})
 Obsoletes:      fedora-repos-rawhide
+Requires:       dapper-gpg-keys = %{version}-%{release}
 Obsoletes:      fedora-repos-anaconda
 Provides:       fedora-repos
 Provides:       fedora-repos(%{version})
@@ -26,6 +27,14 @@ Obsoletes:      fedora-release-rawhide
 %description rawhide
 This package provides the rawhide repo definitions.
 
+%package -n dapper-gpg-keys
+Summary:        Dapper Linux RPM keys
+Provides:		fedora-gpg-keys
+Obsoletes:		fedora-gpg-keys
+Obsoletes:      fedora-release-rawhide <= 22-0.3
+
+%description -n dapper-gpg-keys
+This package provides the RPM signature keys.
 
 %prep
 %setup -q
@@ -56,7 +65,7 @@ ln -s RPM-GPG-KEY-fedora-%{version}-primary RPM-GPG-KEY-%{version}-fedora
 popd
 
 install -d -m 755 $RPM_BUILD_ROOT/etc/yum.repos.d
-for file in fedora*repo dapper*repo xpra*repo; do
+for file in fedora*repo dapper*repo; do
   install -m 644 $file $RPM_BUILD_ROOT/etc/yum.repos.d
 done
 
@@ -72,16 +81,20 @@ install -m 644 copr.conf $RPM_BUILD_ROOT/etc/dnf/plugins/copr.conf
 %config(noreplace) /etc/yum.repos.d/fedora-cisco-openh264.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates*.repo
 %config(noreplace) /etc/yum.repos.d/dapperlinux-main.repo
-%config(noreplace) /etc/yum.repos.d/xpra-beta.repo
 %config(noreplace) /etc/dnf/plugins/copr.conf
-%dir /etc/pki/rpm-gpg
-/etc/pki/rpm-gpg/*
 
 %files rawhide
 %defattr(-,root,root,-)
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
+%files -n dapper-gpg-keys
+%dir /etc/pki/rpm-gpg
+/etc/pki/rpm-gpg/*
+
 %changelog
+* Fri Nov 17 2017 Matthew Ruffell <msr50@uclive.ac.nz> - 27-1
+- DL27, Removing xpra repo and key, adding F28 keys
+
 * Mon Sep  4 2017 Matthew Ruffell <msr50@uclive.ac.nz> - 26-2
 - Disabling xpra beta repo
 
