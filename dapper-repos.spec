@@ -1,7 +1,7 @@
 Summary:        Dapper Linux package repositories
 Name:           dapper-repos
 Version:        28
-Release:        1
+Release:        2
 License:        MIT
 Group:          System Environment/Base
 URL:            https://github.com/dapperlinux/dapper-repos/
@@ -80,7 +80,7 @@ install -m 644 copr.conf $RPM_BUILD_ROOT/etc/dnf/plugins/copr.conf
 %config(noreplace) /etc/yum.repos.d/fedora.repo
 %config(noreplace) /etc/yum.repos.d/fedora-cisco-openh264.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates*.repo
-%config(noreplace) /etc/yum.repos.d/dapperlinux-Primary.repo
+%config(noreplace) /etc/yum.repos.d/dapperlinux.repo
 %config(noreplace) /etc/dnf/plugins/copr.conf
 
 %files rawhide
