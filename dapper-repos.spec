@@ -1,7 +1,7 @@
 Summary:        Dapper Linux package repositories
 Name:           dapper-repos
 Version:        28
-Release:        2
+Release:        3
 License:        MIT
 Group:          System Environment/Base
 URL:            https://github.com/dapperlinux/dapper-repos/
@@ -92,6 +92,9 @@ install -m 644 copr.conf $RPM_BUILD_ROOT/etc/dnf/plugins/copr.conf
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Sun Jun 17 2018 Matthew Ruffell <msr50@uclive.ac.nz> - 28-3
+- Adding kernel repo for GCC 7 kernel builds
+
 * Sat May  5 2018 Matthew Ruffell <msr50@uclive.ac.nz> - 28-1
 - Updating for DL28
 

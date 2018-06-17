@@ -9,3 +9,15 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-dapperlinux-primary
 repo_gpgcheck=0
 enabled=1
 enabled_metadata=1
+
+[dapperlinux-kernel]
+name=Dapper Linux Kernel - $basearch
+baseurl=https://copr-be.cloud.fedoraproject.org/results/dapperlinux/kernel/fedora-27-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+metadata_expire=6h
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-dapperlinux-kernel
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
