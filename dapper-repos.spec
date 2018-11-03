@@ -1,16 +1,16 @@
 Summary:        Dapper Linux package repositories
 Name:           dapper-repos
-Version:        28
-Release:        3
+Version:        29
+Release:        1
 License:        MIT
-Group:          System Environment/Base
 URL:            https://github.com/dapperlinux/dapper-repos/
 Source:         %{name}-%{version}.tar.xz
 Provides:       dapper-repos(%{version})
 Requires:       system-release(%{version})
-Obsoletes:      fedora-repos-rawhide
 Requires:       dapper-gpg-keys = %{version}-%{release}
 Obsoletes:      fedora-repos-anaconda
+Obsoletes:      fedora-repos-modular
+Provides:       fedora-repos-modular = %{version}-%{release} 
 Provides:       fedora-repos
 Provides:       fedora-repos(%{version})
 Obsoletes:      fedora-repos
@@ -23,6 +23,8 @@ Dapper Linux package repository files for yum and dnf along with gpg public keys
 Summary:        Rawhide repo definitions
 Requires:       fedora-repos = %{version}
 Obsoletes:      fedora-release-rawhide
+Obsoletes:      fedora-repos-rawhide-modular
+Provides:       fedora-repos-rawhide-modular = %{version}-%{release} 
 
 %description rawhide
 This package provides the rawhide repo definitions.
@@ -75,23 +77,34 @@ install -d -m 755 $RPM_BUILD_ROOT/etc/dnf/plugins
 install -m 644 copr.conf $RPM_BUILD_ROOT/etc/dnf/plugins/copr.conf
 
 %files
-%defattr(-,root,root,-)
 %dir /etc/yum.repos.d
 %config(noreplace) /etc/yum.repos.d/fedora.repo
+%config(noreplace) /etc/yum.repos.d/fedora-modular.repo
 %config(noreplace) /etc/yum.repos.d/fedora-cisco-openh264.repo
-%config(noreplace) /etc/yum.repos.d/fedora-updates*.repo
+%config(noreplace) /etc/yum.repos.d/fedora-updates.repo
+%config(noreplace) /etc/yum.repos.d/fedora-updates-testing.repo 
+%config(noreplace) /etc/yum.repos.d/fedora-modular.repo
+%config(noreplace) /etc/yum.repos.d/fedora-updates-modular.repo
+%config(noreplace) /etc/yum.repos.d/fedora-updates-testing-modular.repo
 %config(noreplace) /etc/yum.repos.d/dapperlinux.repo
 %config(noreplace) /etc/dnf/plugins/copr.conf
 
 %files rawhide
-%defattr(-,root,root,-)
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
+%config(noreplace) /etc/yum.repos.d/fedora-rawhide-modular.repo
 
 %files -n dapper-gpg-keys
 %dir /etc/pki/rpm-gpg
 /etc/pki/rpm-gpg/*
 
 %changelog
+* Sat Nov  3 2018 Matthew Ruffell <msr50@uclive.ac.nz> - 29-1
+- Updating for DL29
+- add changes for the new modular setup
+- update baseurl paths for updates-testing to new Everything ones
+- Move modular repos to a subpackage
+- Minor cleanups, drop defattr and Group
+
 * Sun Jun 17 2018 Matthew Ruffell <msr50@uclive.ac.nz> - 28-3
 - Adding kernel repo for GCC 7 kernel builds
 
@@ -118,16 +131,3 @@ install -m 644 copr.conf $RPM_BUILD_ROOT/etc/dnf/plugins/copr.conf
 
 * Mon Oct 24 2016 Matthew Ruffell <msr50@uclive.ac.nz> - 24-1
 - Added Dapper Linux repo information
-
-* Wed Sep 14 2016 Dennis Gilmore <dennis@ausil.us> - 25-0.6
-- fix up baseurl lines
-- replace f26 gpg key for wrong uid
-- add zypper support rhbz#1373317
-- sign aarch64 with primary key
-
-* Mon Aug 08 2016 Dennis Gilmore <dennis@ausil.us> - 25-0.5
-- fix up archmap file
-- add f26 gpg keys
-
-* Fri Jul 22 2016 Mohan Boddu <mboddu@redhat.com> - 26-0.1
-- Setup for rawhide being f26

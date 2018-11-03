@@ -17,12 +17,12 @@ Next, setup rpmbuild directories with
 ```bash
 $ rpmdev-setuptree
 ```
-And place the file dapper-repos.spec in the SPECS directory, and rename the dapper-repos directory to dapper-repos-27 and compress it:
+And place the file dapper-repos.spec in the SPECS directory, and rename the dapper-repos directory to dapper-repos-29 and compress it:
 ```bash
 $ mv dapper-repos.spec ~/rpmbuild/SPECS/
-$ mv dapper-repos dapper-repos-27
-$ tar -cJvf dapper-repos-27.tar.xz dapper-repos-27
-$ mv dapper-repos-27.tar.xz ~/rpmbuild/SOURCES/
+$ mv dapper-repos dapper-repos-29
+$ tar -cJvf dapper-repos-29.tar.xz dapper-repos-29
+$ mv dapper-repos-29.tar.xz ~/rpmbuild/SOURCES/
 ```
 
 and finally, you can build RPMs and SRPMs with:
