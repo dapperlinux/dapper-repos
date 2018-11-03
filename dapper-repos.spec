@@ -1,7 +1,7 @@
 Summary:        Dapper Linux package repositories
 Name:           dapper-repos
 Version:        29
-Release:        1
+Release:        2
 License:        MIT
 URL:            https://github.com/dapperlinux/dapper-repos/
 Source:         %{name}-%{version}.tar.xz
@@ -71,11 +71,6 @@ for file in fedora*repo dapper*repo; do
   install -m 644 $file $RPM_BUILD_ROOT/etc/yum.repos.d
 done
 
-
-# copr config file to enable dnf copr on Dapper Linux
-install -d -m 755 $RPM_BUILD_ROOT/etc/dnf/plugins
-install -m 644 copr.conf $RPM_BUILD_ROOT/etc/dnf/plugins/copr.conf
-
 %files
 %dir /etc/yum.repos.d
 %config(noreplace) /etc/yum.repos.d/fedora.repo
@@ -87,7 +82,6 @@ install -m 644 copr.conf $RPM_BUILD_ROOT/etc/dnf/plugins/copr.conf
 %config(noreplace) /etc/yum.repos.d/fedora-updates-modular.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates-testing-modular.repo
 %config(noreplace) /etc/yum.repos.d/dapperlinux.repo
-%config(noreplace) /etc/dnf/plugins/copr.conf
 
 %files rawhide
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
